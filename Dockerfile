@@ -13,8 +13,7 @@ ARG NODE_VERSION=12.16.3
 
 ENV SRC="/usr/local/" \
     LD_LIBRARY_PATH="/usr/local/lib" \
-    PKG_CONFIG_PATH="/usr/local/lib/pkgconfig" \
-    RS_RTMP_PORT="1935"
+    PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 
 RUN apt-get update && \
     apt-get install -y \
@@ -107,6 +106,8 @@ FROM $IMAGE
 COPY --from=builder /usr/local/bin /usr/local/bin
 COPY --from=builder /usr/local/nginx /usr/local/nginx
 COPY --from=builder /usr/local/lib /usr/local/lib
+
+ENV RS_RTMP_PORT=1935
 
 RUN apt-get update && \
     apt-get install -y \
