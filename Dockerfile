@@ -14,7 +14,7 @@ ARG NODE_VERSION=12.16.3
 ENV SRC="/usr/local/" \
     LD_LIBRARY_PATH="/usr/local/lib" \
     PKG_CONFIG_PATH="/usr/local/lib/pkgconfig" \
-    RS_RTMP_PORT=1935
+    RS_RTMP_PORT="1935"
 
 RUN apt-get update && \
     apt-get install -y \
